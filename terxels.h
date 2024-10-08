@@ -31,17 +31,19 @@ namespace terxel
             {
                 if (!bottom.enabled && !top.enabled)
                 {
+                    printf("\033[39;m");
+                    printf("\033[49;m");
                     printf(" ");
                 }
 
                 else if (!bottom.enabled)
                 {
-                    printf("\033[48;5;0;38;2;%d;%d;%dm▀", top.r, top.g, top.b);
+                    printf("\033[49;38;2;%d;%d;%dm▀", top.r, top.g, top.b);
                 }
 
                 else if (!top.enabled)
                 {
-                    printf("\033[38;2;%d;%d;%d;48;5;0m▄", bottom.r, bottom.g, bottom.b);
+                    printf("\033[49;38;2;%d;%d;%dm▄", bottom.r, bottom.g, bottom.b);
                 }
 
                 else
@@ -111,6 +113,15 @@ namespace terxel
 
                 printf("\033[39;m");
                 printf("\033[49;m");
+            }
+
+            void Clear()
+            {
+                for (int i = 0; i < terxels.size(); i++)
+                {
+                    terxels[i].top.enabled = false;
+                    terxels[i].bottom.enabled = false;
+                }
             }
 
         private:
