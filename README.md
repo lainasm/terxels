@@ -16,7 +16,7 @@ i think the pretty colors are pretty, ok :3
 
 ## Okay, how do I use it then?
 
-The easiest way to learn is to simply look at the examples for a basic understanding, after that looking directly in the source code should hopefully not be too confusing. Here is a simple minimal example that shows how you could use terxel to visualize something programmatically:
+The easiest way to learn is to simply look at the examples for a basic understanding. After that, looking directly in the source code should hopefully not be too confusing. Here is a simple minimal example that shows how you could use terxel to visualize something programmatically:
 
 ```cpp
 #include "terxels.h"
