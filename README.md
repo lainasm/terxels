@@ -34,4 +34,4 @@ int main()
     terxture.Draw();
 }
 ```
-Of course, you can always remove the terxel namespace with using namespace if you wish to do so.
+Of course, you can always remove the terxel namespace with ```using namespace``` if you wish to do so.
