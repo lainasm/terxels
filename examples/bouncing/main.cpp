@@ -1,11 +1,20 @@
 #include "../../terxels.h"
+#include <cstdlib>
 #include <thread>
-#include <chrono>
+#include <csignal>
+
+void sigint(int signal)
+{
+    terxel::ShowCursor();
+    std::exit(0);
+}
 
 int main()
 {
     using namespace std::chrono_literals;
     terxel::Terxture tex(16, 16);
+
+    std::signal(SIGINT, sigint);
 
     float posX = 0.0f;
     float posY = 0.0f;
@@ -13,9 +22,10 @@ int main()
     float velX = 0.2f;
     float velY = 0.12f;
 
+    terxel::HideCursor();
+
     while (true)
     {
-        //printf("\033[;H");
         int cursorX;
         int cursorY;
         terxel::GetCursorPosition(cursorX, cursorY);
@@ -41,5 +51,4 @@ int main()
 
         std::this_thread::sleep_for(16ms);
     }
-
 }

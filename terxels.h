@@ -170,4 +170,14 @@ namespace terxel
     {
         printf("\033[%d;%dH", y, x);
     }
+
+    static void HideCursor()
+    {
+        printf("\033[?25l");
+    }
+
+    static void ShowCursor()
+    {
+        printf("\033[?25h");
+    }
 }
