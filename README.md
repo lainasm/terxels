@@ -2,7 +2,7 @@
 
 ## First impressions
 
-A super easy-to-use header only library to freely output pixels in an ANSI terminal. It's the 21st centuary which means..... EACH PIXEL COMES IN 16777216 DIFFERENT COLORS!!! No more horrible, downright awful terminal designs where calling them antiquated would be an insult to antique programs.
+A super easy-to-use header only library to freely output pixels in an ANSI terminal. It's the 21st century which means..... EACH PIXEL COMES IN 16777216 DIFFERENT COLORS!!! No more horrible, downright awful terminal designs where calling them antiquated would be an insult to antique programs.
 
 ## The problem
 
