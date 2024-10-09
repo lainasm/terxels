@@ -3,6 +3,9 @@
 #include <vector>
 #include <iostream>
 #include <stdio.h>
+#include <termios.h>
+#include <stdio.h>
+#include <unistd.h>
 
 namespace terxel
 {
@@ -131,4 +134,40 @@ namespace terxel
 
             const int pixelScale;
     };
+
+    static void GetCursorPosition(int& x, int& y)
+    {
+        struct termios term, term_old;
+
+        tcgetattr(STDIN_FILENO, &term_old);
+        term = term_old;
+
+        term.c_lflag &= ~(ICANON | ECHO);
+        tcsetattr(STDIN_FILENO, TCSANOW, &term);
+
+        std::cout << "\033[6n";
+        std::cout.flush();
+
+        char buffer[32];
+        int i = 0;
+        char ch;
+        while (read(STDIN_FILENO, &ch, 1) != 0)
+        {
+            if (ch == 'R') break;
+            buffer[i++] = ch;
+        }
+        buffer[i] = '\0';
+
+        if (buffer[0] == '\033' && buffer[1] == '[')
+        {
+            sscanf(buffer + 2, "%d;%d", &y, &x);
+        }
+
+        tcsetattr(STDIN_FILENO, TCSANOW, &term_old);
+    }
+
+    static void SetCursorPosition(int x, int y)
+    {
+        printf("\033[%d;%dH", y, x);
+    }
 }

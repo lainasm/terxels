@@ -15,7 +15,10 @@ int main()
 
     while (true)
     {
-        printf("\033[;H");
+        //printf("\033[;H");
+        int cursorX;
+        int cursorY;
+        terxel::GetCursorPosition(cursorX, cursorY);
 
         posX += velX;
         posY += velY;
@@ -33,6 +36,8 @@ int main()
         tex.Clear();
         tex.SetPixel(posX, posY, (terxel::Color){0, 0, 255});
         tex.Draw();
+
+        terxel::SetCursorPosition(cursorX, cursorY);
 
         std::this_thread::sleep_for(16ms);
     }
