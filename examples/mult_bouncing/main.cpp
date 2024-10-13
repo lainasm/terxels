@@ -19,8 +19,13 @@ public:
     {
         this->x = (float)rand() / (float)RAND_MAX * 16.0f;
         this->y = (float)rand() / (float)RAND_MAX * 16.0f;
-        this->vx = (float)rand() / (float)RAND_MAX * 0.2f;
-        this->vy = (float)rand() / (float)RAND_MAX * 0.2f;
+        this->vx = (float)rand() / (float)RAND_MAX * 0.3f;
+        this->vy = (float)rand() / (float)RAND_MAX * 0.3f;
+
+        if (rand() % 2 == 0)
+            this->vx *= -1.0f;
+        if (rand() % 2 == 0)
+            this->vy *= -1.0f;
     }
 
     Ball(float x, float y, float vx, float vy)
@@ -70,7 +75,7 @@ int main()
 
     std::vector<Ball> balls;
 
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 9; i++)
         balls.push_back({});
 
     terxel::HideCursor();
