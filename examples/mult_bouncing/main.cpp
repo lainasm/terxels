@@ -41,13 +41,15 @@ public:
         x += vx;
         y += vy;
 
-        if (x <= 0.0f || x >= 15)
+        if (x <= 0.0f || x >= 15.0f)
         {
+            x = std::min(15.0f, std::max(x, 0.0f));
             vx *= -1.0f;
         }
 
-        if (y <= 0.0f || y >= 15)
+        if (y <= 0.0f || y >= 15.0f)
         {
+            y = std::min(15.0f, std::max(y, 0.0f));
             vy *= -1.0f;
         }
     }
